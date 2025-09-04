@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.kapt)
 }
 
 android {
@@ -8,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.lab6"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -32,6 +33,13 @@ android {
 }
 
 dependencies {
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    implementation(libs.gson)
+    annotationProcessor(libs.room.compiler)
+
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
 
     implementation(libs.appcompat)
     implementation(libs.material)
