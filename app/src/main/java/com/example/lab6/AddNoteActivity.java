@@ -28,6 +28,8 @@ public class AddNoteActivity extends AppCompatActivity {
 
     TextView display1;
 
+    TextView display2;
+
     Button addcheck;
 
     @SuppressLint("MissingInflatedId")
@@ -59,6 +61,7 @@ public class AddNoteActivity extends AppCompatActivity {
         addcheck = findViewById(R.id.button4);
         name = findViewById(R.id.editTextText4);
         id = findViewById(R.id.editTextText5);
+        display2 = findViewById(R.id.textView5);
 
 
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +72,9 @@ public class AddNoteActivity extends AppCompatActivity {
                 String strOfContent = textContent.getText().toString();
 
                 String strOfDate = new Date().toString();
+                String strOfName = name.getText().toString();
+                String strOfId = id.getText().toString();
+
 
 
                 //set data to TextNote class
@@ -79,8 +85,14 @@ public class AddNoteActivity extends AppCompatActivity {
 
                 note1.createdDate = strOfDate;
 
+                note1.createdDate = strOfDate;
+                TextUser user1 = new TextUser();
+                user1.setName(strOfName);
+                user1.setId(strOfId);
+
                 //show note on TextView
                 display.setText(note1.getSummary());
+                display2.setText(user1.getSummary());
             }
         });
         addcheck.setOnClickListener(new View.OnClickListener() {
@@ -99,3 +111,4 @@ public class AddNoteActivity extends AppCompatActivity {
         });
     }
 }
+
